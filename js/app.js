@@ -1,7 +1,6 @@
 const img = document.getElementById('customer-img');
 const name = document.getElementById('customer-name');
 const review = document.getElementById('customer-text');
-const btn = document.querySelectorAll('.btn');
 const prevBtn = document.querySelector('.prevBtn');
 const nextBtn = document.querySelector('.nextBtn');
 const customers = [
