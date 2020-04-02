@@ -1,8 +1,6 @@
 const img = document.getElementById('customer-img');
 const name = document.getElementById('customer-name');
 const review = document.getElementById('customer-text');
-const prevBtn = document.querySelector('.prevBtn');
-const nextBtn = document.querySelector('.nextBtn');
 const customers = [
     {
         img: './img/customer-0.jpg',
@@ -32,25 +30,26 @@ const customers = [
 
 let counter = 0;
 
-prevBtn.addEventListener('click', prev);
-nextBtn.addEventListener('click', next);
-
 // Functions
-function prev() {
-    if (counter === 0) {
-        counter = customers.length;
-    };
-    counter--;
-    setCurrent(counter)
-};
 
-function next() {
-    counter++;
-    if (counter === customers.length) {
-        counter = 0;
-    };
+/**
+ * Changes the current customer in view in the given direction.
+ */
+function change(direction) {
+    if (direction === 'prev') {
+        if (counter === 0) {
+            counter = customers.length;
+        };
+        counter--;
+    } else {
+        counter++;
+        if (counter === customers.length) {
+            counter = 0;
+        };
+    }
+
     setCurrent(counter)
-};
+}
 
 /**
  * Populates the DOM with data from the element at the given index of the
