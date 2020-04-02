@@ -42,9 +42,7 @@ function prev() {
         counter = customers.length;
     };
     counter--;
-    img.src = customers[counter]['img'];
-    name.innerHTML = customers[counter]['name'];
-    review.innerHTML = customers[counter]['review'];
+    setCurrent(counter)
 };
 
 function next() {
@@ -52,7 +50,18 @@ function next() {
     if (counter === customers.length) {
         counter = 0;
     };
-    img.src = customers[counter]['img'];
-    name.innerHTML = customers[counter]['name'];
-    review.innerHTML = customers[counter]['review']; 
+    setCurrent(counter)
 };
+
+/**
+ * Populates the DOM with data from the element at the given index of the
+ * customers array.
+ */
+function setCurrent(index) {
+  img.src = customers[index]['img'];
+  name.innerHTML = customers[index]['name'];
+  review.innerHTML = customers[index]['review']; 
+}
+
+// Initialize the DOM with the first element in the customers array
+setCurrent(0)
